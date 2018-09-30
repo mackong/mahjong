@@ -51,7 +51,7 @@ static bool init_tiles(struct Map *map, signed char masks[MAP_ROWS][MAP_COLS])
                         non_zero_points[map->tile_cnt_total++] = point;
                 } else {
                         SDL_Rect *rect = MALLOC(SDL_Rect);
-                        TILE_SET_RECT(rect, col, row);                        
+                        TILE_SET_RECT(rect, col, row);
                         map->tiles[row][col] = tile_new(TEX_TYPE_NONE, rect, 0, 0);
                 }
         } MAP_FOREACH_END;
@@ -63,7 +63,7 @@ static bool init_tiles(struct Map *map, signed char masks[MAP_ROWS][MAP_COLS])
                         free(non_zero_points[i]);
                 }
                 free(non_zero_points);
-        }        
+        }
         
         return result;
 }

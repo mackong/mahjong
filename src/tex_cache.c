@@ -13,7 +13,7 @@
         X(JOIN_IMAGE("rt.png"), TEX_TYPE_LIGHTING_RT)   \
         X(JOIN_IMAGE("lb.png"), TEX_TYPE_LIGHTING_LB)   \
         X(JOIN_IMAGE("rb.png"), TEX_TYPE_LIGHTING_RB)
-                
+
 /* The texture cache */
 static SDL_Texture *cache[TEX_TYPE_NUMBER];
 

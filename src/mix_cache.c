@@ -37,4 +37,3 @@ void mix_cache_destroy(void)
                 DESTROY_CHUNK(cache[i]);
         }
 }
-

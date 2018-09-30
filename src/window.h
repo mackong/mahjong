@@ -15,6 +15,10 @@
 #define BOTTOM_PADDING 100
 #define HINT_TEXT_X    MAP_WIDTH - 200
 #define HINT_TEXT_Y    MAP_HEIGHT + BOTTOM_PADDING / 2 - 10
+#define H_PB_X         20
+#define H_PB_Y         HINT_TEXT_Y
+#define H_PB_WIDTH     430
+#define H_PB_HEIGHT    20
 #define WINDOW_WIDTH   MAP_WIDTH
 #define WINDOW_HEIGHT  MAP_HEIGHT + BOTTOM_PADDING
 

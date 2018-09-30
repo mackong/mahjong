@@ -26,7 +26,12 @@
 #define MIN(x, y) ((x) < (y) ? (x) : (y))
 #define MAX(x, y) ((x) > (y) ? (x) : (y))
 
-#define DEFAULT_TEXT_FONT {0, 0, 0, 255}
+/* Default text color */
+#define DEFAULT_TEXT_COLOR {0, 0, 0, 255}
+/* Default foreground color for progress bar */
+#define DEFAULT_PB_FG_COLOR {0, 255, 255, 255}
+/* Default background color for progress bar */
+#define DEFAULT_PB_BG_COLOR {255, 255, 0, 255}
 
 /* Macros to destroy SDL related stuff */
 #define DESTROY_IT(it, dtor) \
@@ -92,9 +97,18 @@ SDL_Surface *load_surface(const char *fname);
  */
 SDL_Texture *load_texture(SDL_Renderer *renderer, const char *fname);
 
+/*
+ * Draw text on renderer at position (x, y) with
+ * given font and color.
+ */
 void render_text(SDL_Renderer *renderer, TTF_Font *font,
                  const char *text, SDL_Color color, int x, int y);
 
+/*
+ * Draw a horizental progress bar on renderer at position (x, y)
+ * with width w, and height h.
+ * percent range in 0.0 to 1.0.
+ */
 void render_h_pb(SDL_Renderer *renderer, int x, int y, int w, int h,
                  float percent, SDL_Color fg_color, SDL_Color bg_color);
 

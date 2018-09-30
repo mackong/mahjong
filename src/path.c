@@ -85,7 +85,7 @@ static bool one_corner(const struct Map *map,
          *                    |
          *                    |
          *                    pt2
-         */                    
+         */
         POINT_SET(*corner, pt2->x, pt1->y);
         if (get_line_with_corner(map, pt1, pt2, corner)) {
                 return true;

@@ -136,18 +136,22 @@ FREE:
 }
 
 void render_h_pb(SDL_Renderer *renderer, int x, int y, int w, int h,
-                 float percent, SDL_Color fg_color, SDL_Color bg_color) { 
-   percent = percent > 1.f ? 1.f : percent < 0.f ? 0.f : percent;
-   
-   SDL_Color old;
-   SDL_GetRenderDrawColor(renderer, &old.r, &old.g, &old.g, &old.a);
-   SDL_Rect bgrect = { x, y, w, h };
-   SDL_SetRenderDrawColor(renderer, bg_color.r, bg_color.g, bg_color.b, bg_color.a);
-   SDL_RenderFillRect(renderer, &bgrect);
-   SDL_SetRenderDrawColor(renderer, fg_color.r, fg_color.g, fg_color.b, fg_color.a);
-   int pw = (int)((float)w * percent);
-   int px = x + (w - pw);
-   SDL_Rect fgrect = { px, y, pw, h }; 
-   SDL_RenderFillRect(renderer, &fgrect);
-   SDL_SetRenderDrawColor(renderer, old.r, old.g, old.b, old.a);
-} 
+                 float percent, SDL_Color fg_color, SDL_Color bg_color)
+{
+        percent = percent > 1.f ? 1.f : percent < 0.f ? 0.f : percent;
+        
+        SDL_Color old;
+        SDL_GetRenderDrawColor(renderer, &old.r, &old.g, &old.g, &old.a);
+
+        SDL_Rect bgrect = { x, y, w, h };
+        SDL_SetRenderDrawColor(renderer, bg_color.r, bg_color.g, bg_color.b, bg_color.a);
+        SDL_RenderFillRect(renderer, &bgrect);
+
+        SDL_SetRenderDrawColor(renderer, fg_color.r, fg_color.g, fg_color.b, fg_color.a);
+        int pw = (int)((float)w * percent);
+        int px = x + (w - pw);
+        SDL_Rect fgrect = { px, y, pw, h };
+        SDL_RenderFillRect(renderer, &fgrect);
+
+        SDL_SetRenderDrawColor(renderer, old.r, old.g, old.b, old.a);
+}

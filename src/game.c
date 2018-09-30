@@ -162,7 +162,7 @@ static void draw_lighting_line(struct Game *game,
                 tile_set_animation(map_get_tile_xy(_map, x, y), tex_type,
                                    tick, tick + TILE_ANIMATION_TICKS);
                 x += dx, y += dy;
-        } 
+        }
 }
 
 static void draw_corner(struct Game *game, const struct Point *pt1,
@@ -247,7 +247,7 @@ static void mahjong_it(struct Game *game)
 /* Handler for mouse event */
 static void game_mouse_press(struct Game *game, SDL_MouseButtonEvent event)
 {
-        if (event.button == SDL_BUTTON_LEFT) {  /* left click */                        
+        if (event.button == SDL_BUTTON_LEFT) {  /* left click */
                 int x, y;
                 x = event.x / TILE_WIDTH;
                 y = event.y / TILE_HEIGHT;
@@ -314,13 +314,13 @@ static void game_render(struct Game *game)
         }
 
         /* Render the hint text */
-        SDL_Color text_color = DEFAULT_TEXT_FONT;
+        SDL_Color text_color = DEFAULT_TEXT_COLOR;
         render_text(_renderer, _font, get_hint_text(game),
                     text_color, HINT_TEXT_X, HINT_TEXT_Y);
 
-        SDL_Color fg_color = {0, 255, 255, 255};
-        SDL_Color bg_color = {255, 255, 0, 255};
-        render_h_pb(_renderer, 20, HINT_TEXT_Y, 430, 20, 0.3, fg_color, bg_color);
+        SDL_Color fg_color = DEFAULT_PB_FG_COLOR;
+        SDL_Color bg_color = DEFAULT_PB_BG_COLOR;
+        render_h_pb(_renderer, H_PB_X, H_PB_Y, H_PB_WIDTH, H_PB_HEIGHT, 0.3, fg_color, bg_color);
         
         SDL_RenderPresent(_renderer);
 }
@@ -330,6 +330,5 @@ void game_mainloop(struct Game *game)
         while (_running) {
                 game_event_handler(game);
                 game_render(game);
-        }        
+        }
 }
-

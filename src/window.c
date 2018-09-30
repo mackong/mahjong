@@ -34,7 +34,7 @@ static bool set_window_cursor(struct Window *window)
 
         surface = load_surface(cursor_file);
         if (!surface) {
-                return false;                
+                return false;
         }
 
         window->cursor = SDL_CreateColorCursor(surface, 0, 0);
