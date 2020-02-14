@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.8)
 
 project (mahjong C)
 
@@ -18,7 +18,6 @@ find_package(SDL2_ttf REQUIRED)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-include_directories(${SDL2_INCLUDE_DIRS})
 include_directories(${SDL2_IMAGE_INCLUDE_DIR})
 include_directories(${SDL2_MIXER_INCLUDE_DIR})
 include_directories(${SDL2_TTF_INCLUDE_DIR})
@@ -26,7 +25,7 @@ include_directories(${SDL2_TTF_INCLUDE_DIR})
 file(GLOB_RECURSE mahjong_SOURCES src/*.c)
 
 add_executable(${PROJECT_NAME} ${mahjong_SOURCES})
-target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES} ${SDL2_MIXER_LIBRARIES} ${SDL2_TTF_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} SDL2::SDL2 ${SDL2_IMAGE_LIBRARIES} ${SDL2_MIXER_LIBRARIES} ${SDL2_TTF_LIBRARIES})
 
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/assets
      DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
